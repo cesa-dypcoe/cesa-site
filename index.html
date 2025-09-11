@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CESA - DY Patil College of Engineering</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* active-link underline */
+    .active-link {
+      color: #dc2626;
+      font-weight: 600;
+      border-bottom: 2px solid #dc2626;
+    }
+
+    /* reveal animations */
+    .reveal {
+      transform: translateY(20px);
+      opacity: 0;
+      transition: transform 700ms cubic-bezier(.2,.9,.3,1), opacity 700ms ease;
+    }
+    .reveal.in-view {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* card hover */
+    .card-hover {
+      transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .card-hover, html { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800">
+
+<!-- Navbar -->
+<header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3">
+      <img src="images/CESA Logo (2).png" alt="CESA Logo" class="h-10 w-10 object-contain">
+      <h1 class="text-xl font-bold text-red-600">DYPCOE | CESA</h1>
+    </div>
+    
+       <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="#home" class="nav-link text-gray-700 hover:text-red-600 transition">Home</a>
+      <a href="#about" class="nav-link text-gray-700 hover:text-red-600 transition">About</a>
+      <a href="#events" class="nav-link text-gray-700 hover:text-red-600 transition">Events</a>
+      <a href="#team" class="nav-link text-gray-700 hover:text-red-600 transition">Team</a>
+      <a href="#contact" class="nav-link text-gray-700 hover:text-red-600 transition">Contact</a>
+    </nav>
+    
+     <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-2xl text-gray-700"><i class="fas fa-bars"></i></button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden flex-col bg-white shadow-md px-6 py-4 space-y-4 md:hidden">
+    <a href="#home" class="nav-link text-gray-700 hover:text-red-600">Home</a>
+    <a href="#about" class="nav-link text-gray-700 hover:text-red-600">About</a>
+    <a href="#events" class="nav-link text-gray-700 hover:text-red-600">Events</a>
+    <a href="#team" class="nav-link text-gray-700 hover:text-red-600">Team</a>
+    <a href="#contact" class="nav-link text-gray-700 hover:text-red-600">Contact</a>
+  </div>
+</header>
+
+
+<!-- Hero -->
+<section id="home" class="h-screen bg-cover bg-center flex items-center justify-center text-center relative" style="background-image: url('Images/bg photo.jpg');">
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="relative z-10 max-w-3xl px-4">
+    <h1 class="text-4xl md:text-6xl font-bold text-white animate-fadeIn">Civil Engineering Students' Association</h1>
+    <p class="mt-4 text-lg md:text-xl text-gray-200">DY Patil College of Engineering, Pune</p>
+    <a href="#about" class="mt-6 inline-block px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 hover:scale-105 transform transition">Learn More</a>
+  </div>
+</section>
+
+  <!-- About Section -->
+<section id="about" class="py-16 bg-gray-50 reveal">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <!-- Tagline -->
+    <h2 class="text-4xl font-bold text-gray-800 mb-4">Empowering Future Civil Engineers</h2>
+    <p class="text-lg text-gray-600 leading-relaxed mb-8">
+      The Civil Engineering Students’ Association (CESA) of D.Y. Patil College of Engineering, Akurdi, Pune is a vibrant student-led body 
+      that works to enhance the technical, cultural, sports, and leadership skills of civil engineering students.
+    </p>
+    <p class="text-lg text-gray-600 leading-relaxed mb-12">
+      CESA functions as a bridge between students, faculty, and industry, offering a platform to learn, explore, and innovate. 
+      Each year, the association organizes technical competitions, workshops, seminars, industrial visits, cultural events, 
+      and sports tournaments that help students grow as well-rounded engineers.
+    </p>
+
+    <!-- Vision, Mission, Objectives -->
+    <div class="grid md:grid-cols-3 gap-8 text-left">
+      <!-- Vision Card -->
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <h3 class="text-2xl font-semibold text-indigo-600 mb-4">🎯 Vision</h3>
+        <p class="text-gray-600 leading-relaxed">
+          “To shape civil engineering students into skilled, responsible, and innovative professionals committed 
+          to nation-building and sustainable development.”
+        </p>
+      </div>
+
+      <!-- Mission Card -->
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <h3 class="text-2xl font-semibold text-green-600 mb-4">🚀 Mission</h3>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+          <li>Provide opportunities for technical expertise through workshops, seminars, and competitions.</li>
+          <li>Connect students with real-world practices via industrial visits and guest lectures.</li>
+          <li>Promote teamwork, leadership, and creativity through cultural and sports events.</li>
+          <li>Instill social responsibility through community-driven initiatives.</li>
+          <li>Strengthen industry–institute interaction for career growth.</li>
+        </ul>
+      </div>
+
+      <!-- Objectives Card -->
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <h3 class="text-2xl font-semibold text-blue-600 mb-4">🎯 Objectives</h3>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600">
+          <li>Organize technical events like paper presentations, model making, CAD contests, and exhibitions.</li>
+          <li>Arrange workshops and software training (AutoCAD, STAAD Pro, Revit, etc.).</li>
+          <li>Conduct industrial and site visits for practical exposure.</li>
+          <li>Encourage participation in cultural and sports activities.</li>
+          <li>Enhance managerial and organizational skills through event management.</li>
+          <li>Promote interaction with industry experts and alumni for mentorship.</li>
+          <li>Develop ethics and sustainability awareness among future civil engineers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section -->
+<section id="video" class="py-16 bg-gray-100 text-center reveal">
+  <div class="container mx-auto px-6 md:px-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">CESA Highlights</h2>
+    <p class="text-gray-600 mb-8">Have a look at this !!</p>
+    
+    <!-- Local Autoplay Video -->
+    <video autoplay muted loop playsinline class="w-full max-w-4xl mx-auto rounded-xl shadow-lg">
+      <source src="videos/Cesa.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+
+<!-- Events Section -->
+<section id="events" class="py-16 bg-white text-center reveal">
+  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Events</h2>
+  <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+    We organize technical workshops, seminars, site visits, and cultural programs 
+    to encourage holistic growth of students.
+  </p>
+
+  <!-- Event Image -->
+  <div class="flex justify-center">
+    <img 
+      src="Images/Event Banner.jpg" 
+      alt="CESA Event" 
+      class="w-full max-w-5xl rounded-2xl shadow-lg"
+    >
+  </div>
+  <!-- Another Events PDF -->
+  <div class="text-center">
+    <h3 class="text-2xl font-semibold text-gray-800 mb-4">See Our Other Events</h3>
+    <p class="text-gray-600 mb-6">Download the detailed PDF to explore more of our past events.</p>
+
+    <!-- PDF Thumbnail -->
+    <div class="flex justify-center mb-6">
+      <a href="Tech fest.pdf" target="_blank" download>
+        <img 
+          src="Images/Event_Banner.png" 
+          alt="Events PDF Thumbnail" 
+          class="w-64 rounded-xl shadow-md hover:scale-105 transition-transform"
+        >
+      </a>
+    </div>
+
+    <!-- Download Button -->
+    <a href="Tech fest.pdf" download 
+       class="px-6 py-3 bg-red-600 text-white font-semibold rounded-xl shadow hover:bg-red-700 transition">
+      📥 Download PDF
+    </a>
+  </div>
+</section>
+
+
+
+<!-- Team Section -->
+<section id="team" class="py-16 bg-gray-50 reveal">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
+    <p class="text-lg text-gray-600 mb-12">
+      The dedicated committee of CESA working together to empower future civil engineers.
+    </p>
+
+    <!-- Chairman & Vice Chairmen -->
+    <div class="grid md:grid-cols-3 gap-10 mb-16">
+      <div class="bg-white p-6 rounded-2xl shadow-md">
+        <img src="Images/AmodJadhav.jpg" alt="Chairman" class="w-40 h-40 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800">Amod Jadhav</h3>
+        <p class="text-indigo-600 font-medium">Chairman</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-md">
+        <img src="Images/VishakhaShilare.jpg" alt="Vice Chairman" class="w-40 h-40 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800">Vishakha Shilare</h3>
+        <p class="text-green-600 font-medium">Vice Chairman</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-md">
+        <img src="Images/Omwagh.jpg" alt="Vice Chairman" class="w-40 h-40 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800">Om Wagh</h3>
+        <p class="text-green-600 font-medium">Vice Chairman</p>
+      </div>
+    </div>
+
+    <!-- Core Committee -->
+    <h3 class="text-2xl font-bold text-gray-700 mb-8">Core Committee</h3>
+    <div class="grid md:grid-cols-3 gap-10 mb-16">
+      <!-- Secretaries -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/ShardulNanaware.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Shardul Nanawane</h3><p class="text-blue-600">Secretary</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/VinayakSuryawanshi.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Vinayak Suryawanshi</h3><p class="text-blue-600">Secretary</p></div>
+
+      <!-- Treasurers -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/AnandkumarBaheti.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Anandkumar Baheti</h3><p class="text-blue-600">Treasurer</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/VaishnaviUmbarkar.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Vaishnavi Umbarkar</h3><p class="text-blue-600">Treasurer</p></div>
+
+      <!-- Cultural Heads -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/SharwariChincholkar.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Sharwari Chincholkar</h3><p class="text-blue-600">Cultural Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/AishwaryaPowar.png" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Aishwarya Powar</h3><p class="text-blue-600">Cultural Head</p></div>
+
+      <!-- Technical Heads -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/SayyadSaleem.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Sayyad Salim</h3><p class="text-blue-600">Technical Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/IshwariAuti.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Ishwari Auti</h3><p class="text-blue-600">Technical Head</p></div>
+
+      <!-- Documentation -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/Aditi_Vaidya.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Aditi Vaidya</h3><p class="text-blue-600">Documentation Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/Adarsh_Salunkhe.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Adarsh Salunke</h3><p class="text-blue-600">Documentation Head</p></div>
+
+      <!-- Publicity -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/DevPatil.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Dev Pati</h3><p class="text-blue-600">Publicity Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/OmkarGhuge.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Omkar Ghuge</h3><p class="text-blue-600">Publicity Head</p></div>
+
+      <!-- Social Media -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/VedantikaGangurde.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Vedantika Gangurde</h3><p class="text-blue-600">Social Media Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/VaradAdkine.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Varad Adkine</h3><p class="text-blue-600">Social Media Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/VivekMane.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Vivek Mane</h3><p class="text-blue-600">Social Media Head</p></div>
+
+      <!-- Volunteer -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/RonitSarvagod.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Ronit Sarvagod</h3><p class="text-blue-600">Volunteer Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/PawanPatil.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Pawan Patil</h3><p class="text-blue-600">Volunteer Head</p></div>
+
+      <!-- Discipline -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/Abhishek_Sawant.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Abhishek Sawant</h3><p class="text-blue-600">Discipline Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/TanishKhairnar.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Tanish Khairnar</h3><p class="text-blue-600">Discipline Head</p></div>
+
+      <!-- Sports -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/HarshTogare.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Harsh Togare</h3><p class="text-blue-600">Sports Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/Shrushti Gangurde .jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Shrushti Gangurde</h3><p class="text-blue-600">Sports Head</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/SamratGaware.JPG" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Samrat Gaware</h3><p class="text-blue-600">Sports Head</p></div>
+
+      <!-- Event Coordinators -->
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/ShrawaniBhadang.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Shrawani Bhadang</h3><p class="text-blue-600">Event Coordinator</p></div>
+      <div class="bg-white p-6 rounded-2xl shadow-md"><img src="Images/SushantWankhede.jpg" class="w-32 h-32 mx-auto rounded-full mb-3"><h3 class="font-semibold">Sushant Wankhede</h3><p class="text-blue-600">Event Coordinator</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Faculty Section -->
+<section id="faculty" class="py-16 bg-gray-100 reveal">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Faculty</h2>
+    <p class="text-lg text-gray-600 mb-12">
+      Meet the guiding force behind CESA — our esteemed faculty coordinators supporting and mentoring students.
+    </p>
+
+    <!-- Faculty Grid -->
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+      <!-- Repeat this block for each faculty member -->
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/AshokMore.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800">Dr. Ashok B More</h3>
+        <p class="text-indigo-600 font-medium">Professor, HOD</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/SMShiyekar.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800">Dr. S M Shiyekar</h3>
+        <p class="text-indigo-600 font-medium">Dean Research Development and Grants</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/SmitaPataskar.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Dr Mrs Smita V Pataskar</h3>
+        <p class="text-indigo-600 font-medium">Associate Professor, Dean (Students Affairs)</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/SachinMane.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Dr Sachin J Mane</h3>
+        <p class="text-indigo-600 font-medium">Associate Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/PathakSudhanshu.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Dr. Pathak Sudhanshu</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/AshwiniPatil.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Dr Mrs.Ashwini R.Patil</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor & PG Coordinator (Construction & Management)</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/SnehaSawant.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mrs Sneha K Sawant</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/MaheshTatikonda.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mr. Mahesh.V.Tatikonda</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/RohiniKhandewal.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Ms Khandelwal Rohini</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/AvadhutKulkarni.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Avadhut Kulkarni</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/RajvardanPatil.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Rajvardhan Patil</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor & PG Coordinator (Environmental Engineering)</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/HardikMandwe.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mr Hardik Mandwe</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/PritalKalasur.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Dr Mrs Prital Kalasur</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/SavitaJatti.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mrs. Savita Jatti</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/SubhashiniRamteke.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Ms Subhashini S Ramteke</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/MukundChougule.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800">Mr Mukund Chougale</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/AradhanaChouvan.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mrs Aradhana Chavan</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/Sharmishtha.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mrs. Sharmistha Chakraborty</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/NehaBagdiya.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Ms Neha Vijaykumar Bagdiya</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/Sukhada.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mrs Sukhada Shelar</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/Sunil.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mr.Sunil Payghan</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/Mrunalini.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800">Mrs Mrunalini Shewale</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/SushantWaghmare.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Dr Sushant V Waghmare</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/SuhasPatil.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Dr Suhas V Patil</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/MukeshDhatunde.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mr Mukesh Dhatunde</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/PoonamPatil.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mrs Poonam Patil</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/KunalPawar.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mr Kunal P Pawar</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/SalmanShaikh.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Mr Salman Shaikh Arif Shaikh </h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+        <img src="Images/KundanKAle.jpg" alt="Faculty Name" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-gray-800"> Dr Kundan Kale</h3>
+        <p class="text-indigo-600 font-medium">Assistant Professor
+</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-16 bg-white text-center">
+  <div class="container mx-auto px-6 md:px-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Contact Us</h2>
+    <p class="text-gray-600 mb-6">We’d love to hear from you! Reach out for inquiries, suggestions, or collaborations.</p>
+
+    <!-- Contact Info -->
+    <div class="mb-8 text-gray-700 space-y-2">
+      <p><strong>Department:</strong> Civil Engineering Department, Dr. D.Y. Patil College of Engineering, Akurdi, Pune – 411044</p>
+      <p><strong>Faculty Coordinator:</strong>  Dr. Prital Kalasur - <a href="mailto:pgkalasur@dypcoeakurdi.ac.in" class="text-red-600 hover:underline">pgkalasur@dypcoeakurdi.ac.in</a></p>
+      <p><strong>Student Coordinators:</strong> 
+        <a href="tel:9607090909" class="text-red-600 hover:underline">Amod Jadhav - Chairman (9607090909)</a>, 
+        <a href="tel:7410062681" class="text-red-600 hover:underline">Om Wagh - Vice Chairman (7410062681)</a>
+      </p>
+      <p><strong>Official Email:</strong> <a href="mailto:civilcesadypcoe@gmail.com" class="text-red-600 hover:underline">civilcesadypcoe@gmail.com</a></p>
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contactForm" class="max-w-xl mx-auto bg-gray-100 p-6 rounded-lg shadow-md">
+      <div class="mb-4 text-left">
+        <label for="name" class="block text-gray-700 mb-1">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" aria-label="Your Name"
+          class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none" required>
+      </div>
+      <div class="mb-4 text-left">
+        <label for="email" class="block text-gray-700 mb-1">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" aria-label="Your Email"
+          class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none" required>
+      </div>
+      <div class="mb-4 text-left">
+        <label for="message" class="block text-gray-700 mb-1">Your Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" aria-label="Your Message"
+          class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-400 focus:outline-none" required></textarea>
+      </div>
+      <button type="submit" 
+        class="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition">
+        Send Message
+      </button>
+      <!-- Feedback Messages -->
+      <p id="successMessage" class="mt-4 text-green-600 hidden">Your message has been sent!</p>
+      <p id="errorMessage" class="mt-4 text-red-600 hidden">Please fill out all fields.</p>
+    </form>
+
+    <!-- Social Media Links -->
+<div class="mt-6 flex justify-center gap-4">
+  <a href="#" aria-label="Facebook" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-red-600 hover:text-white transition">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.instagram.com/cesa.dypcoe?igsh=MWNoaTl2NHRwdHhxNg==" aria-label="Instagram" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-red-600 hover:text-white transition">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="http://linkedin.com/in/cesa-dypcoe-923b52381" aria-label="LinkedIn" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-red-600 hover:text-white transition">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+</div>
+
+
+    <!-- Map -->
+    <div class="mt-10">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.238679526469!2d73.74351367518107!3d18.609650982509556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf5e4da2df5f%3A0x1d6a3b70c4cbbeb1!2sDr.%20D.Y.%20Patil%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1631100000000!5m2!1sen!2sin"
+        width="100%" class="h-64 sm:h-64 md:h-80 border-0" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const successMessage = document.getElementById('successMessage');
+  const errorMessage = document.getElementById('errorMessage');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (name && email && message) {
+      successMessage.classList.remove('hidden');
+      errorMessage.classList.add('hidden');
+      form.reset();
+    } else {
+      errorMessage.classList.remove('hidden');
+      successMessage.classList.add('hidden');
+    }
+  });
+</script>
+
+
+
+ <!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-6 text-center">
+  <p>© 2025 CESA - DY Patil College of Engineering. All rights reserved.</p>
+</footer>
+
+  <!-- Active Link Highlight Script -->
+<script>
+  // ---- Mobile menu toggle ----
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+
+  function openMobile() {
+    mobileMenu.classList.remove('hidden');
+    navToggle.setAttribute('aria-expanded','true');
+  }
+  function closeMobile() {
+    mobileMenu.classList.add('hidden');
+    navToggle.setAttribute('aria-expanded','false');
+  }
+  navToggle && navToggle.addEventListener('click', openMobile);
+  mobileClose && mobileClose.addEventListener('click', closeMobile);
+  // close when clicking outside panel
+  mobileMenu && mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobile(); });
+
+  // close mobile menu on link click
+  document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', closeMobile));
+
+  // ---- IntersectionObserver reveal with stagger ----
+  const revealElems = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // add class
+        entry.target.classList.add('in-view');
+        // if it's a container of cards, stagger children
+        if (entry.target.classList.contains('faculty-card') || entry.target.id === 'facultyGrid') {
+          // handled in separate logic below (stagger cards)
+        }
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealElems.forEach(el => revealObserver.observe(el));
+
+  // Stagger reveal for child cards (e.g., faculty grid)
+  const staggerContainers = document.querySelectorAll('#facultyGrid, .grid');
+  staggerContainers.forEach(container => {
+    const cards = container.querySelectorAll('.faculty-card, .bg-white.p-6');
+    if (!cards.length) return;
+    const io = new IntersectionObserver((entries, o) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          cards.forEach((card, i) => {
+            setTimeout(() => card.classList.add('in-view'), i * 70); // 70ms stagger
+          });
+          o.disconnect();
+        }
+      });
+    }, { threshold: 0.12 });
+    io.observe(container);
+  });
+
+  // ---- Active nav link on scroll (improved) ----
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function onScrollActive() {
+    let currentId = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 140; // navbar offset
+      if (window.scrollY >= top) currentId = sec.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active-link');
+      if (link.getAttribute('href') === '#' + currentId) link.classList.add('active-link');
+    });
+  }
+  window.addEventListener('scroll', onScrollActive);
+  window.addEventListener('load', onScrollActive);
+
+  // smooth scroll offset fix for anchor clicks (accounts for fixed header)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.pageYOffset - 110;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ---- Small video tweak: don't autoplay on reduced-motion devices ----
+  const vid = document.querySelector('video[autoplay]');
+  if (vid && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    vid.removeAttribute('autoplay');
+  }
+
+  // ---- Small optimization: lazy load images where supported (fallback already on img attrs) ----
+  // (modern browsers already support loading="lazy" in the markup)
+</script>
+
+
+
+</body>
+</html>
